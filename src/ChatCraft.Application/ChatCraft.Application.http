@@ -1,0 +1,11 @@
+@ChatCraft.Application_HostAddress = http://localhost:5108
+
+GET {{ChatCraft.Application_HostAddress}}/openapi/v1.json
+Accept: application/json
+
+###
+
+GET {{ChatCraft.Application_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
