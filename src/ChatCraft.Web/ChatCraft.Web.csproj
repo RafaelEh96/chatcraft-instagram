@@ -10,4 +10,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.Gateway" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ChatCraft.Domain\ChatCraft.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

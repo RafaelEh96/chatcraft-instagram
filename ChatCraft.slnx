@@ -3,6 +3,8 @@
     <Project Path="src/ChatCraft.Application/ChatCraft.Application.csproj" />
     <Project Path="src/ChatCraft.Domain/ChatCraft.Domain.csproj" />
     <Project Path="src/ChatCraft.Infrastructure/ChatCraft.Infrastructure.csproj" />
+    <Project Path="src/ChatCraft.Repository/ChatCraft.Repository.csproj" />
+    <Project Path="src/ChatCraft.Service/ChatCraft.Service.csproj" />
     <Project Path="src/ChatCraft.Web/ChatCraft.Web.csproj" />
   </Folder>
 </Solution>

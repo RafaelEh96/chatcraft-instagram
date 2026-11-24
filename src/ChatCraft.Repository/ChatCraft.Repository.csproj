@@ -1,0 +1,6 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\ChatCraft.Domain\ChatCraft.Domain.csproj" />
+    <ProjectReference Include="..\ChatCraft.Infrastructure\ChatCraft.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

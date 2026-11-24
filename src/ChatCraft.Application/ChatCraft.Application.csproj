@@ -2,5 +2,10 @@
   <ItemGroup>
 	  <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChatCraft.Domain\ChatCraft.Domain.csproj" />
+    <ProjectReference Include="..\ChatCraft.Infrastructure\ChatCraft.Infrastructure.csproj" />
+    <ProjectReference Include="..\ChatCraft.Service\ChatCraft.Service.csproj" />
+  </ItemGroup>
 
 </Project>
