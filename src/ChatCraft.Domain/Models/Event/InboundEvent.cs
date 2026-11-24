@@ -2,12 +2,12 @@
 
 public abstract class InboundEvent
 {
-    public Guid Id { get; set; }
-    public Guid AccountId { get; set; }
-    public string EventKey { get; set; } = string.Empty;
-    public DateTimeOffset ReceivedAtUtc { get; set; }
-    public DateTimeOffset? OccurredAtUtc { get; set; }
-    public string Payload { get; set; } = string.Empty;
+    public Guid Id { get; private set; }
+    public Guid AccountId { get; private set; }
+    public string EventKey { get; private set; } = string.Empty;
+    public DateTimeOffset ReceivedAtUtc { get; private set; }
+    public DateTimeOffset? OccurredAtUtc { get; private set; }
+    public string Payload { get; private set; } = string.Empty;
 
     protected InboundEvent()
     {

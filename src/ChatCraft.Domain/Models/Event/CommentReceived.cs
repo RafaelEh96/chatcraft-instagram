@@ -2,17 +2,21 @@
 
 public class CommentReceived : InboundEvent
 {
-    public string CommentId { get; set; } = string.Empty;
-    public string MediaId { get; set; } = string.Empty;
-    public string? AuthorIgsId { get; set; }
-    public string Text { get; set; } = string.Empty;
+    public string CommentId { get; private set; } = string.Empty;
+    public string MediaId { get; private set; } = string.Empty;
+    public string? AuthorIgsId { get; private set; }
+    public string Text { get; private set; } = string.Empty;
 
-    public CommentReceived(string commentId, string mediaId, string? authorIgsId, string text) : base(
-       accountId: Guid.Empty,
-       eventKey: "comment_received",
-       myProperty: 0,
-       receivedAtUtc: DateTimeOffset.UtcNow,
-       occurredAtUtc: null)
+    public CommentReceived()
+    {
+        
+    }
+
+    public CommentReceived(
+        string commentId,
+        string mediaId,
+        string? authorIgsId,
+        string text) : base()
     {
         CommentId = commentId;
         MediaId = mediaId;

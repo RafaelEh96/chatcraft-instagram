@@ -10,7 +10,7 @@ public class InstagramAccount
     public EConnectionStatus Status { get; private set; }
     public long Version { get; private set; }
     public Guid? ActiveCredentialId { get; private set; }
-    public IEnumerable<InstagramCredential> Credentials { get; set; } = [];
+    public IEnumerable<InstagramCredential> Credentials { get; private set; } = [];
 
     public InstagramAccount()
     {

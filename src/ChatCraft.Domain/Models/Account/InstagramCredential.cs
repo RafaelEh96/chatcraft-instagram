@@ -4,13 +4,18 @@ namespace ChatCraft.Domain.Models.Account;
 
 public class InstagramCredential
 {
-    public Guid Id { get; set; }
-    public Guid AccountId { get; set; }
-    public InstagramAccount InstagramAccount { get; set; } = new ();
-    public byte[] Ciphertext { get; set; } = [];
-    public TokenKind TokenKind { get; set; } = new ();
-    public DateTimeOffset ExpiresAtUtc { get; set; }
-    public ECredentialStatus Status { get; set; }
+    public Guid Id { get; private set; }
+    public Guid AccountId { get; private set; }
+    public InstagramAccount InstagramAccount { get; private set; } = new ();
+    public byte[] Ciphertext { get; private set; } = [];
+    public TokenKind TokenKind { get; private set; } = new ();
+    public DateTimeOffset ExpiresAtUtc { get; private set; }
+    public ECredentialStatus Status { get; private set; }
+
+    public InstagramCredential()
+    {
+        
+    }
 
     public InstagramCredential(Guid accountId,
         InstagramAccount instagramAccount,

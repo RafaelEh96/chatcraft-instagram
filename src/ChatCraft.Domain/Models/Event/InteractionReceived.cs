@@ -2,17 +2,21 @@
 
 public class InteractionReceived : InboundEvent
 {
-    public string SenderIdsId { get; set; } = string.Empty;
-    public string ReplyPayload { get; set; } = string.Empty;
-    public string? RelatedMessageId { get; set; }
-    public string Text { get; set; } = string.Empty;
+    public string SenderIdsId { get; private set; } = string.Empty;
+    public string ReplyPayload { get; private set; } = string.Empty;
+    public string? RelatedMessageId { get; private set; }
+    public string Text { get; private set; } = string.Empty;
 
-    public InteractionReceived(string senderIdsId, string replyPayload, string? relatedMessageId, string text) : base(
-    accountId: Guid.Empty,
-    eventKey: "interaction_received",
-    myProperty: 0,
-    receivedAtUtc: DateTimeOffset.UtcNow,
-    occurredAtUtc: null)
+    public InteractionReceived()
+    {
+        
+    }
+
+    public InteractionReceived(
+        string senderIdsId,
+        string replyPayload,
+        string? relatedMessageId,
+        string text) : base()
     {
         SenderIdsId = senderIdsId;
         ReplyPayload = replyPayload;

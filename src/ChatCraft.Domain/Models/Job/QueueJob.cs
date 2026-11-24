@@ -4,15 +4,20 @@ namespace ChatCraft.Domain.Models.Job;
 
 public class QueueJob
 {
-    public Guid Id { get; set; }
-    public Guid AccountId { get; set; }
-    public string ActionKey { get; set; } = string.Empty;
-    public EJobType Type { get; set; }
-    public EJobStatus Status { get; set; }
-    public DateTimeOffset DueAtUtc { get; set; }
-    public DateTimeOffset LeaseUntilUtc { get; set; }
-    public long LeaseVersion { get; set; }
-    public int AttemptCount { get; set; }
+    public Guid Id { get; private set; }
+    public Guid AccountId { get; private set; }
+    public string ActionKey { get; private set; } = string.Empty;
+    public EJobType Type { get; private set; }
+    public EJobStatus Status { get; private set; }
+    public DateTimeOffset DueAtUtc { get; private set; }
+    public DateTimeOffset LeaseUntilUtc { get; private set; }
+    public long LeaseVersion { get; private set; }
+    public int AttemptCount { get; private set; }
+
+    public QueueJob()
+    {
+        
+    }
 
     public QueueJob(
         Guid accountId,
