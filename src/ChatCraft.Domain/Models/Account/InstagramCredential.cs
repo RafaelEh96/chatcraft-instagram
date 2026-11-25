@@ -9,7 +9,7 @@ public class InstagramCredential
     public InstagramAccount InstagramAccount { get; private set; } = new ();
     public byte[] Ciphertext { get; private set; } = [];
     public TokenKind TokenKind { get; private set; } = new ();
-    public DateTimeOffset ExpiresAtUtc { get; private set; }
+    public DateTimeOffset? ExpiresAtUtc { get; private set; }
     public ECredentialStatus Status { get; private set; }
 
     public InstagramCredential()
@@ -18,7 +18,6 @@ public class InstagramCredential
     }
 
     public InstagramCredential(Guid accountId,
-        InstagramAccount instagramAccount,
         byte[] ciphertext,
         TokenKind tokenKind,
         DateTimeOffset expiresAtUtc,
@@ -26,7 +25,6 @@ public class InstagramCredential
     {
         Id = Guid.CreateVersion7();
         AccountId = accountId;
-        InstagramAccount = instagramAccount;
         Ciphertext = ciphertext;
         TokenKind = tokenKind;
         ExpiresAtUtc = expiresAtUtc;

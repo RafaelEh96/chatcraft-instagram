@@ -5,6 +5,7 @@ namespace ChatCraft.Domain.Models.Job;
 public class JobAttempt
 {
     public Guid Id { get; set; }
+    public Guid JobId { get; set; }
     public int Number { get; set; }
     public DateTimeOffset StartedAtUtc { get; set; }
     public DateTimeOffset FinishedAtUtc { get; set; }

@@ -1,4 +1,5 @@
 ﻿using ChatCraft.Domain.Enums;
+using ChatCraft.Domain.Models.Event;
 
 namespace ChatCraft.Domain.Models.Job;
 
@@ -10,9 +11,11 @@ public class QueueJob
     public EJobType Type { get; private set; }
     public EJobStatus Status { get; private set; }
     public DateTimeOffset DueAtUtc { get; private set; }
-    public DateTimeOffset LeaseUntilUtc { get; private set; }
+    public DateTimeOffset? LeaseUntilUtc { get; private set; }
     public long LeaseVersion { get; private set; }
     public int AttemptCount { get; private set; }
+    public Guid InboundEventId { get; set; }
+    public InboundEvent InboundEvent { get; set; }
 
     public QueueJob()
     {
@@ -27,7 +30,8 @@ public class QueueJob
         DateTimeOffset dueAtUtc,
         DateTimeOffset leaseUntilUtc,
         long leaseVersion,
-        int attemptCount)
+        int attemptCount,
+        Guid inboundEventId)
     {
         Id = Guid.CreateVersion7();
         AccountId = accountId;
@@ -38,6 +42,7 @@ public class QueueJob
         LeaseUntilUtc = leaseUntilUtc;
         LeaseVersion = leaseVersion;
         AttemptCount = attemptCount;
+        InboundEventId = inboundEventId;
     }
 
     public void BeginSend(long leaseVersion)
@@ -52,7 +57,7 @@ public class QueueJob
         Status = EJobStatus.Queued;
         DueAtUtc = dueAtUtc;
         LeaseUntilUtc = DateTimeOffset.MinValue;
-        LeaseVersion = 0;
+        LeaseVersion++;
         AttemptCount++;
     }
 
@@ -60,6 +65,6 @@ public class QueueJob
     {
         Status = EJobStatus.Uncertain;
         LeaseUntilUtc = DateTimeOffset.MinValue;
-        LeaseVersion = 0;
+        LeaseVersion++;
     }
 }

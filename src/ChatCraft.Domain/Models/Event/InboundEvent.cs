@@ -11,7 +11,7 @@ public abstract class InboundEvent
 
     protected InboundEvent()
     {
-        
+
     }
 
     protected InboundEvent(

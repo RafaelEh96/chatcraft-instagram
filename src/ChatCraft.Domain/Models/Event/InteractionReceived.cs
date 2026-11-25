@@ -3,9 +3,9 @@
 public class InteractionReceived : InboundEvent
 {
     public string SenderIdsId { get; private set; } = string.Empty;
-    public string ReplyPayload { get; private set; } = string.Empty;
+    public string? ReplyPayload { get; private set; } = string.Empty;
     public string? RelatedMessageId { get; private set; }
-    public string Text { get; private set; } = string.Empty;
+    public string? Text { get; private set; } = string.Empty;
 
     public InteractionReceived()
     {
