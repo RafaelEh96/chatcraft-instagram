@@ -11,6 +11,8 @@ public class JobAttemptMap : IEntityTypeConfiguration<JobAttempt>
         builder.ToTable("job_attempts");
 
         builder.HasKey(x => x.Id);
+        builder.Property(x => x.Id)
+            .ValueGeneratedNever();
 
         builder.Property(x => x.Number)
             .IsRequired();  

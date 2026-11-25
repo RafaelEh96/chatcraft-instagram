@@ -12,6 +12,8 @@ public class QueueJobMap : IEntityTypeConfiguration<QueueJob>
         builder.ToTable("queue_jobs");
 
         builder.HasKey(x => x.Id);
+        builder.Property(x => x.Id)
+            .ValueGeneratedNever();
 
         builder.Property(x => x.ActionKey)
             .IsRequired()
@@ -42,9 +44,10 @@ public class QueueJobMap : IEntityTypeConfiguration<QueueJob>
             .HasForeignKey(x => x.AccountId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        builder.HasOne(x => x.InboundEvent)
+        builder.HasOne(job => job.InboundEvent)
             .WithMany()
-            .HasForeignKey(x => x.InboundEventId)
+            .HasForeignKey(job => new { job.AccountId, job.InboundEventId })
+            .HasPrincipalKey(inbound => new { inbound.AccountId, inbound.Id })
             .OnDelete(DeleteBehavior.Restrict);
     }
 }

@@ -11,6 +11,8 @@ public class InstagramAccountMap : IEntityTypeConfiguration<InstagramAccount>
         builder.ToTable("instagram_accounts");
 
         builder.HasKey(x => x.Id);
+        builder.Property(x => x.Id)
+            .ValueGeneratedNever();
 
         builder.Property(x => x.MetaAccountId)
             .IsRequired()

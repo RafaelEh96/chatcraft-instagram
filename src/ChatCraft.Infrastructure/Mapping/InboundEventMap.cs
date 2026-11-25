@@ -11,6 +11,8 @@ public class InboundEventMap : IEntityTypeConfiguration<InboundEvent>
         builder.ToTable("inbox_events");
 
         builder.HasKey(x => x.Id);
+        builder.Property(x => x.Id)
+            .ValueGeneratedNever();
 
         builder.Property(x => x.EventKey)
             .IsRequired()
@@ -28,7 +30,7 @@ public class InboundEventMap : IEntityTypeConfiguration<InboundEvent>
 
         builder.HasIndex(x => new { x.AccountId, x.EventKey }).IsUnique();
 
-        builder.HasDiscriminator<string>("event_key")
+        builder.HasDiscriminator<string>("event_type")
             .HasValue<CommentReceived>("comment_received")
             .HasValue<InteractionReceived>("interaction_received");
     }

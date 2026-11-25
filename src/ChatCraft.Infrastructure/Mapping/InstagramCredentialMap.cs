@@ -11,6 +11,8 @@ public class InstagramCredentialMap : IEntityTypeConfiguration<InstagramCredenti
         builder.ToTable("instagram_credentials");
 
         builder.HasKey(x => x.Id);
+        builder.Property(x => x.Id)
+            .ValueGeneratedNever();
 
         builder.Property(x => x.Ciphertext)
             .IsRequired();
@@ -19,6 +21,10 @@ public class InstagramCredentialMap : IEntityTypeConfiguration<InstagramCredenti
             .IsRequired(false);
 
         builder.Property(x => x.Status)
+            .IsRequired()
+            .HasColumnType("smallint");
+
+        builder.Property(x => x.TokenKind)
             .IsRequired()
             .HasColumnType("smallint");
 
