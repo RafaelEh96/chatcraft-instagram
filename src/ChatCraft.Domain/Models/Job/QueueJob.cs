@@ -14,8 +14,8 @@ public class QueueJob
     public DateTimeOffset? LeaseUntilUtc { get; private set; }
     public long LeaseVersion { get; private set; }
     public int AttemptCount { get; private set; }
-    public Guid InboundEventId { get; set; }
-    public InboundEvent InboundEvent { get; set; }
+    public Guid? InboundEventId { get; set; }
+    public InboundEvent? InboundEvent { get; set; }
 
     public QueueJob()
     {
